@@ -2,9 +2,10 @@ import React from 'react';
 
 function App() {
   return (
-    <div>
-      <h1>Hello, world</h1>
-    </div>
+    <React.Fragment>
+      <label htmlFor="bar">インプット</label>
+      <input type="text" onClick={() => {console.log("I am clicked");}} />
+    </React.Fragment>
   );
 }
 
