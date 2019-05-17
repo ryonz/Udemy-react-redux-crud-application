@@ -1,20 +1,30 @@
 import React from 'react';
-
-// function App() {
-//   return (
-//     <React.Fragment>
-//       <label htmlFor="bar">インプット</label>
-//       <input type="text" onClick={() => {console.log("I am clicked");}} />
-//     </React.Fragment>
-//   );
-// }
+import PropTypes from 'prop-types';
 
 const App = () => {
-  return <Cat />
+  const profiles = [
+    {name: "Taro", age: 10},
+    {name: "Hanako", age: 20},
+    {name: "Noname", }
+  ]
+  return (
+    <div>
+      {
+        profiles.map((profile, index) => {
+          return <User name={profile.name} age={profile.age} key={index} />
+        })
+      }
+    </div>
+  );
 }
 
-const Cat = () => {
-  return <div>Meow!</div>
+const User = (props) => {
+  return <div>Hi, I am {props.name}!, and {props.age} years old!</div>
+}
+
+User.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number.isRequired
 }
 
 export default App;
